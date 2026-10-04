@@ -1,0 +1,431 @@
+.approved-department-page {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.approved-department__header,
+.approved-plan-detail > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.approved-department__header {
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dce4f1;
+}
+
+.approved-department__header > div,
+.approved-plan-detail > header > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.approved-department__header span,
+.approved-plan-detail > header > div > span {
+  color: #6c7f9b;
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.approved-department__header h1,
+.approved-plan-detail h2 {
+  margin: 0;
+  color: #182a43;
+  letter-spacing: 0;
+}
+
+.approved-department__header h1 { font-size: 21px; }
+
+.approved-department__header p,
+.approved-plan-detail > header p {
+  margin: 0;
+  color: #74839a;
+  font-size: 9px;
+}
+
+.approved-department__header > button,
+.approved-period-filter__range > button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #d4deec;
+  border-radius: 6px;
+  background: #fff;
+  color: #315f9f;
+  cursor: pointer;
+}
+
+.approved-department__header > button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.approved-period-filter {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: auto minmax(270px, 1fr) auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 9px;
+  border: 1px solid #d5dfed;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 7px 22px rgba(35, 60, 94, 0.04);
+}
+
+.approved-period-filter button,
+.approved-period-filter select { font: inherit; }
+
+.approved-period-filter__modes {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid #d2ddec;
+  border-radius: 6px;
+  background: #f5f8fc;
+}
+
+.approved-period-filter__modes button {
+  min-width: 58px;
+  height: 34px;
+  padding: 0 11px;
+  border: 0;
+  border-right: 1px solid #d2ddec;
+  background: transparent;
+  color: #60748f;
+  font-size: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.approved-period-filter__modes button:last-child { border-right: 0; }
+
+.approved-period-filter__modes button[aria-pressed='true'] {
+  background: #174fbc;
+  color: #fff;
+}
+
+.approved-period-filter__range {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 34px minmax(170px, 1fr) 34px;
+  align-items: center;
+  overflow: hidden;
+  border: 1px solid #d7e0ec;
+  border-radius: 6px;
+  background: #fbfcfe;
+}
+
+.approved-period-filter__range > button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+.approved-period-filter__range > button:first-child { border-right: 1px solid #e0e6ef; }
+.approved-period-filter__range > button:last-child { border-left: 1px solid #e0e6ef; }
+
+.approved-period-filter__range > button:hover,
+.approved-department__header > button:hover { background: #edf3fb; }
+
+.approved-period-filter__range > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 0 10px;
+  color: #315f9f;
+}
+
+.approved-period-filter__range span {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.approved-period-filter__range small {
+  color: #7a899e;
+  font-size: 7px;
+  font-weight: 500;
+}
+
+.approved-period-filter__range strong {
+  overflow: hidden;
+  color: #223a5a;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.approved-period-filter__today {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid #d2ddec;
+  border-radius: 6px;
+  background: #fff;
+  color: #315f9f;
+  font-size: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.approved-period-filter__today:hover { background: #edf3fb; }
+
+.approved-period-filter__selection {
+  display: flex;
+  min-width: 116px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 9px;
+}
+
+.approved-period-filter__selection > span {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.approved-period-filter__selection > span strong {
+  color: #174fbc;
+  font-size: 12px;
+}
+
+.approved-period-filter__selection > span small {
+  color: #718199;
+  font-size: 7px;
+}
+
+.approved-period-filter__selection select {
+  width: min(230px, 24vw);
+  height: 34px;
+  padding: 0 28px 0 9px;
+  border: 1px solid #d2ddec;
+  border-radius: 6px;
+  background: #fff;
+  color: #314762;
+  font-size: 8px;
+  cursor: pointer;
+}
+
+.approved-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.approved-plan-detail {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d5dfed;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(35, 60, 94, 0.045);
+}
+
+.approved-department__state {
+  display: flex;
+  min-height: 96px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #d5dfed;
+  border-radius: 7px;
+  background: #fff;
+  color: #6680a2;
+  text-align: left;
+}
+
+.approved-department__state > div {
+  display: grid;
+  gap: 3px;
+}
+
+.approved-department__state strong {
+  color: #314762;
+  font-size: 9px;
+}
+
+.approved-department__state span {
+  color: #7a899e;
+  font-size: 8px;
+}
+
+.approved-department__state--error { color: #b42318; }
+
+.approved-department__state button {
+  min-height: 29px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 5px;
+  background: #174fbc;
+  color: #fff;
+  font: inherit;
+  font-size: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.approved-plan-detail > header {
+  min-height: 70px;
+  padding: 13px 15px;
+  border-bottom: 1px solid #dce4ef;
+  background: #fbfcfe;
+}
+
+.approved-plan-detail h2 { font-size: 15px; }
+
+.approved-plan-detail__status {
+  display: inline-flex;
+  min-height: 29px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+  border: 1px solid #b8cae4;
+  border-radius: 5px;
+  background: #edf3fb;
+  color: #24579f;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.approved-plan-detail__summary {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin: 0;
+  border-bottom: 1px solid #dce4ef;
+}
+
+.approved-plan-detail__summary > div {
+  display: grid;
+  gap: 5px;
+  padding: 12px 13px;
+  border-right: 1px solid #e0e6ef;
+}
+
+.approved-plan-detail__summary > div:last-child { border-right: 0; }
+
+.approved-plan-detail__summary dt {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #78879b;
+  font-size: 7px;
+}
+
+.approved-plan-detail__summary dd {
+  margin: 0;
+  color: #233b5b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.approved-plan-detail .department-matrix__wrap {
+  border: 0;
+  border-radius: 0;
+}
+
+.approved-plan-detail--loading,
+.approved-plan-detail__matrix-loading {
+  display: grid;
+  gap: 9px;
+  padding: 14px;
+}
+
+.approved-plan-detail--loading span,
+.approved-plan-detail__matrix-loading span {
+  height: 49px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #edf1f6 25%, #f8fafc 50%, #edf1f6 75%);
+  background-size: 200% 100%;
+  animation: approved-plan-skeleton 1.2s ease-in-out infinite;
+}
+
+.approved-department__spin { animation: approved-plan-spin 800ms linear infinite; }
+
+@keyframes approved-plan-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes approved-plan-skeleton {
+  to { background-position: -200% 0; }
+}
+
+@media (max-width: 980px) {
+  .approved-period-filter { grid-template-columns: auto minmax(230px, 1fr) auto; }
+
+  .approved-period-filter__selection {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid #e2e8f1;
+  }
+
+  .approved-period-filter__selection select { width: min(360px, 60vw); }
+}
+
+@media (max-width: 780px) {
+  .approved-plan-detail__summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .approved-plan-detail__summary > div { border-bottom: 1px solid #e0e6ef; }
+  .approved-plan-detail__summary > div:nth-child(2n) { border-right: 0; }
+
+  .approved-plan-detail__summary > div:last-child {
+    grid-column: 1 / -1;
+    border-bottom: 0;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .approved-period-filter { grid-template-columns: 1fr auto; }
+  .approved-period-filter__modes { width: fit-content; }
+
+  .approved-period-filter__range {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .approved-period-filter__selection {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+
+@media (max-width: 560px) {
+  .approved-department__header h1 { font-size: 18px; }
+
+  .approved-plan-detail > header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .approved-plan-detail__status { width: fit-content; }
+
+  .approved-period-filter__selection {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .approved-period-filter__selection select { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .approved-department__spin,
+  .approved-plan-detail--loading span,
+  .approved-plan-detail__matrix-loading span { animation: none; }
+}

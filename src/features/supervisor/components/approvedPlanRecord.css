@@ -1,0 +1,147 @@
+.approved-plan-record {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: minmax(210px, 0.75fr) minmax(340px, 1.25fr);
+  border-top: 1px solid #dce4ef;
+  background: #fbfcfe;
+}
+
+.approved-plan-record > div {
+  min-width: 0;
+  padding: 14px 15px;
+}
+
+.approved-plan-record__remarks {
+  border-right: 1px solid #dce4ef;
+}
+
+.approved-plan-record header {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 8px;
+  color: #315f9f;
+}
+
+.approved-plan-record header > span {
+  display: grid;
+  min-width: 0;
+  gap: 1px;
+}
+
+.approved-plan-record header strong {
+  color: #253c59;
+  font-size: 9px;
+}
+
+.approved-plan-record header small {
+  color: #7a899e;
+  font-size: 7px;
+}
+
+.approved-plan-record__remarks > p {
+  margin: 12px 0 0;
+  color: #4f6179;
+  font-size: 9px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.approved-plan-record__history header b {
+  display: grid;
+  min-width: 22px;
+  height: 22px;
+  margin-left: auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #e8eef8;
+  color: #315f9f;
+  font-size: 8px;
+}
+
+.approved-plan-record__history ol {
+  display: grid;
+  max-height: 280px;
+  gap: 0;
+  margin: 11px 0 0;
+  padding: 0 4px 0 0;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.approved-plan-record__history li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.approved-plan-record__history li:not(:last-child)::before {
+  position: absolute;
+  top: 19px;
+  bottom: -5px;
+  left: 5px;
+  width: 1px;
+  background: #ccd8e8;
+  content: '';
+}
+
+.approved-plan-record__history li > i {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  margin-top: 2px;
+  border: 3px solid #dce7f5;
+  border-radius: 50%;
+  background: #356ec1;
+}
+
+.approved-plan-record__history li > div {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.approved-plan-record__history li strong {
+  color: #2d435f;
+  font-size: 8px;
+}
+
+.approved-plan-record__history li p {
+  margin: 0;
+  color: #52647b;
+  font-size: 8px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.approved-plan-record__history li small {
+  color: #8996a8;
+  font-size: 7px;
+}
+
+.approved-plan-record__history li small span {
+  padding: 0 3px;
+  color: #bdc7d4;
+}
+
+.approved-plan-record__empty {
+  margin: 12px 0 0;
+  color: #7a899e;
+  font-size: 8px;
+}
+
+@media (max-width: 780px) {
+  .approved-plan-record {
+    grid-template-columns: 1fr;
+  }
+
+  .approved-plan-record__remarks {
+    border-right: 0;
+    border-bottom: 1px solid #dce4ef;
+  }
+}

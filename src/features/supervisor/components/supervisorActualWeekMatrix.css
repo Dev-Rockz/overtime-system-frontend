@@ -1,0 +1,133 @@
+.supervisor-actual-matrix-wrap {
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #d8e1ed;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.supervisor-actual-matrix {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.supervisor-actual-matrix th,
+.supervisor-actual-matrix td {
+  border-right: 1px solid #dfe6ef;
+  border-bottom: 1px solid #dfe6ef;
+}
+
+.supervisor-actual-matrix tr > *:last-child { border-right: 0; }
+.supervisor-actual-matrix thead th { height: 42px; padding: 7px 8px; background: #eaf0f9; color: #4c6382; font-size: 7px; text-align: center; }
+.supervisor-actual-matrix thead th:first-child { width: 180px; text-align: left; }
+.supervisor-actual-matrix thead th:last-child { width: 118px; }
+.supervisor-actual-matrix thead th strong,
+.supervisor-actual-matrix thead th span { display: block; }
+.supervisor-actual-matrix thead th span { margin-top: 2px; color: #7c8ba0; font-size: 6px; font-weight: 500; }
+
+.supervisor-actual-matrix tbody > tr > th {
+  display: flex;
+  height: 70px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #fff;
+  text-align: left;
+}
+
+.supervisor-actual-matrix__avatar {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #cdd9e8;
+  border-radius: 50%;
+  background: #f1f5fa;
+  color: #557399;
+  font-size: 7px;
+}
+
+.supervisor-actual-matrix tbody > tr > th > span:last-child { display: grid; min-width: 0; gap: 2px; }
+.supervisor-actual-matrix tbody > tr > th strong,
+.supervisor-actual-matrix tbody > tr > th small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.supervisor-actual-matrix tbody > tr > th strong { color: #283f5c; font-size: 8px; }
+.supervisor-actual-matrix tbody > tr > th small { color: #8492a5; font-size: 6px; }
+
+.supervisor-actual-matrix tbody td { height: 70px; padding: 0; background: #fff; text-align: center; }
+.supervisor-actual-matrix tbody td.is-selected { background: #edf3fc; box-shadow: inset 0 -2px #356ec1; }
+
+.supervisor-actual-matrix tbody td > button {
+  display: grid;
+  width: 100%;
+  height: 69px;
+  align-content: center;
+  justify-items: center;
+  gap: 3px;
+  padding: 5px;
+  border: 0;
+  background: transparent;
+  color: #263d5a;
+  font: inherit;
+  cursor: pointer;
+}
+
+.supervisor-actual-matrix tbody td > button:hover { background: #f3f6fa; }
+.supervisor-actual-matrix tbody td > button strong { font-size: 9px; }
+.supervisor-actual-matrix tbody td > button small { color: #8190a4; font-size: 6px; }
+.supervisor-actual-matrix tbody td > button span { padding: 2px 4px; border-radius: 3px; background: #eef2f6; font-size: 6px; font-weight: 700; }
+.supervisor-actual-matrix__empty { color: #a2adbb; font-size: 8px; }
+
+.supervisor-actual-matrix__signature { padding: 6px !important; }
+.supervisor-actual-matrix__signature > button { height: 56px !important; }
+.supervisor-actual-matrix__signature img { display: block; width: 76px; height: 30px; object-fit: contain; }
+.supervisor-actual-matrix__signature button span,
+.supervisor-actual-matrix__signature > span { display: inline-flex; align-items: center; justify-content: center; gap: 3px; color: #53708f; font-size: 6px; }
+
+.supervisor-actual-matrix tfoot th,
+.supervisor-actual-matrix tfoot td {
+  height: 47px;
+  padding: 7px 8px;
+  border-bottom: 0;
+  background: #f2f5f9;
+  text-align: center;
+}
+
+.supervisor-actual-matrix tfoot th { color: #405874; font-size: 8px; text-align: left; }
+.supervisor-actual-matrix tfoot td strong,
+.supervisor-actual-matrix tfoot td small { display: block; }
+.supervisor-actual-matrix tfoot td strong { color: #254872; font-size: 9px; }
+.supervisor-actual-matrix tfoot td small { margin-top: 2px; color: #8492a5; font-size: 6px; }
+
+.supervisor-actual-signature-dialog__backdrop {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(16, 31, 53, 0.36);
+}
+
+.supervisor-actual-signature-dialog {
+  width: min(430px, 100%);
+  overflow: hidden;
+  border: 1px solid #d1dbea;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 20px 55px rgba(24, 44, 72, 0.2);
+}
+
+.supervisor-actual-signature-dialog > header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #dce4ef; }
+.supervisor-actual-signature-dialog > header div { display: grid; gap: 2px; }
+.supervisor-actual-signature-dialog > header span { color: #78889d; font-size: 7px; text-transform: uppercase; }
+.supervisor-actual-signature-dialog > header h2 { margin: 0; color: #263d5a; font-size: 13px; letter-spacing: 0; }
+.supervisor-actual-signature-dialog > header button { display: grid; width: 30px; height: 30px; place-items: center; border: 1px solid #d5dfeb; border-radius: 5px; background: #fff; color: #526b89; cursor: pointer; }
+.supervisor-actual-signature-dialog > div { display: grid; min-height: 175px; place-items: center; padding: 20px; background: #f8fafc; }
+.supervisor-actual-signature-dialog img { max-width: 100%; max-height: 140px; object-fit: contain; }
+.supervisor-actual-signature-dialog > footer { display: flex; align-items: center; justify-content: center; gap: 5px; padding: 10px; color: #28734d; font-size: 7px; font-weight: 700; }
+
+.supervisor-actual-matrix .is-higher { color: #a13c32; }
+.supervisor-actual-matrix .is-lower { color: #9a6818; }
+.supervisor-actual-matrix .is-matched { color: #28734d; }

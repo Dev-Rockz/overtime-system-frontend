@@ -1,0 +1,48 @@
+.workspace-entrance :is(.employee-brand, .supervisor-brand),
+.workspace-entrance :is(.employee-topbar, .supervisor-topbar) > *,
+.workspace-entrance :is(.employee-nav__item, .supervisor-nav__item),
+.workspace-entrance .supervisor-sidebar__identity {
+  animation: workspace-part-in 520ms cubic-bezier(.22, .7, .25, 1) both;
+  animation-delay: var(--workspace-delay, 0ms);
+}
+
+.workspace-entrance :is(.employee-topbar, .supervisor-topbar) > :last-child { --workspace-delay: 80ms; }
+.workspace-entrance :is(.employee-nav__item, .supervisor-nav__item):nth-child(2) { --workspace-delay: 90ms; }
+.workspace-entrance :is(.employee-nav__item, .supervisor-nav__item):nth-child(3) { --workspace-delay: 140ms; }
+.workspace-entrance :is(.employee-nav__item, .supervisor-nav__item):nth-child(4) { --workspace-delay: 190ms; }
+.workspace-entrance :is(.employee-nav__item, .supervisor-nav__item):nth-child(5) { --workspace-delay: 240ms; }
+.workspace-entrance :is(.employee-nav__item, .supervisor-nav__item):nth-child(n+6) { --workspace-delay: 290ms; }
+.workspace-entrance .supervisor-sidebar__identity { --workspace-delay: 340ms; }
+
+.dashboard-assemble > * { --dashboard-delay: 0ms; }
+.dashboard-assemble > :nth-child(2) { --dashboard-delay: 50ms; }
+.dashboard-assemble > :nth-child(3) { --dashboard-delay: 100ms; }
+.dashboard-assemble > :nth-child(4) { --dashboard-delay: 150ms; }
+.dashboard-assemble > :nth-child(5) { --dashboard-delay: 200ms; }
+.dashboard-assemble > :nth-child(6) { --dashboard-delay: 250ms; }
+.dashboard-assemble > :nth-child(7) { --dashboard-delay: 300ms; }
+.dashboard-assemble > :nth-child(8) { --dashboard-delay: 350ms; }
+.dashboard-assemble > :nth-child(n+9) { --dashboard-delay: 400ms; }
+
+.dashboard-assemble > :is(header, h1, section:not(.supervisor-dashboard__metrics), [role='alert']),
+.dashboard-assemble > :is(.dashboard-summary-row, .dashboard-secondary-grid, .supervisor-dashboard__lower, .supervisor-dashboard__metrics) > * {
+  animation: workspace-part-in 560ms cubic-bezier(.22, .7, .25, 1) both;
+  animation-delay: calc(var(--dashboard-delay, 0ms) + var(--dashboard-part-delay, 0ms));
+}
+
+.dashboard-assemble > :is(.dashboard-summary-row, .dashboard-secondary-grid, .supervisor-dashboard__lower, .supervisor-dashboard__metrics) > :nth-child(2) { --dashboard-part-delay: 60ms; }
+.dashboard-assemble > .supervisor-dashboard__metrics > :nth-child(3) { --dashboard-part-delay: 120ms; }
+.dashboard-assemble > .supervisor-dashboard__metrics > :nth-child(4) { --dashboard-part-delay: 180ms; }
+
+@keyframes workspace-part-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workspace-entrance *,
+  .dashboard-assemble > *,
+  .dashboard-assemble > :is(.dashboard-summary-row, .dashboard-secondary-grid, .supervisor-dashboard__lower, .supervisor-dashboard__metrics) > * {
+    animation: none !important;
+  }
+}

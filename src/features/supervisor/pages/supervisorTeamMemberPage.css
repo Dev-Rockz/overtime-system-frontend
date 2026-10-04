@@ -1,0 +1,24 @@
+.supervisor-team-profile__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.supervisor-team-profile__heading > a {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid #d7e0ed;
+  border-radius: 6px;
+  background: #fff;
+  color: #42628f;
+}
+
+.supervisor-team-profile__heading > a:hover {
+  border-color: #aac0e8;
+  background: #eef4ff;
+  color: var(--color-primary);
+}

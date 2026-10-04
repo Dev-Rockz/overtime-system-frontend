@@ -1,0 +1,424 @@
+.ot-calendar {
+  --calendar-line: #dce3ed;
+  overflow: hidden;
+  border: 1px solid #d5deeb;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(31, 41, 55, 0.055);
+}
+
+.ot-calendar__header {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 1px solid #e2e7ef;
+  background: #fff;
+}
+
+.ot-calendar__title,
+.ot-calendar__title > span,
+.ot-calendar__summary,
+.ot-calendar__summary > div,
+.ot-calendar__month-controls,
+.ot-calendar__legend,
+.ot-calendar__error {
+  display: flex;
+  align-items: center;
+}
+
+.ot-calendar__title { gap: 12px; }
+
+.ot-calendar__title > span {
+  width: 36px;
+  height: 42px;
+  justify-content: center;
+  border-left: 3px solid #0033cc;
+  color: #0033cc;
+}
+
+.ot-calendar__title > div {
+  display: grid;
+  gap: 1px;
+}
+
+.ot-calendar__title small {
+  color: #7c8799;
+  font-size: 7px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.ot-calendar__title h2 {
+  margin: 0;
+  color: #18243a;
+  font-size: 17px;
+  font-weight: 650;
+  letter-spacing: 0;
+}
+
+.ot-calendar__title p {
+  margin: 0;
+  color: #768298;
+  font-size: 9px;
+}
+
+.ot-calendar__month-controls {
+  height: 38px;
+  overflow: hidden;
+  border: 1px solid #d5ddea;
+  border-radius: 6px;
+  background: #f7f9fc;
+}
+
+.ot-calendar__month-controls button {
+  display: grid;
+  width: 38px;
+  height: 100%;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  color: #64738b;
+  background: transparent;
+}
+
+.ot-calendar__month-controls button:hover {
+  color: #0033cc;
+  background: #eaf0ff;
+}
+
+.ot-calendar__month-controls input {
+  width: 148px;
+  height: 100%;
+  padding: 0 11px;
+  border: 0;
+  border-right: 1px solid #dce3ee;
+  border-left: 1px solid #dce3ee;
+  color: #26344d;
+  background: #fff;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.ot-calendar__summary {
+  min-height: 62px;
+  gap: 0;
+  padding: 0 20px;
+  border-bottom: 1px solid #dfe5ee;
+  background: #f7f9fc;
+}
+
+.ot-calendar__summary > div {
+  min-width: 150px;
+  gap: 10px;
+  padding: 0 22px;
+  border-right: 1px solid #dce3ed;
+}
+
+.ot-calendar__summary > div:first-child { padding-left: 0; }
+.ot-calendar__summary > div:nth-child(1) > svg { color: #315fd1; }
+.ot-calendar__summary > div:nth-child(2) > svg { color: #a96812; }
+.ot-calendar__summary > div:nth-child(3) > svg { color: #08739a; }
+
+.ot-calendar__summary span {
+  display: grid;
+  gap: 1px;
+}
+
+.ot-calendar__summary small {
+  color: #78859a;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.ot-calendar__summary strong {
+  color: #1f2d44;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.ot-calendar__refreshing {
+  margin-left: auto;
+  color: #315fd1 !important;
+}
+
+.ot-calendar__scroll {
+  overflow-x: auto;
+  padding: 10px;
+  background: #f3f5f8;
+}
+
+.ot-calendar__grid {
+  display: grid;
+  min-width: 840px;
+  overflow: hidden;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  border: 1px solid #d9e0e9;
+  background: #fff;
+}
+
+.ot-calendar__weekday {
+  display: grid;
+  height: 36px;
+  place-items: center;
+  border-right: 1px solid #dfe5ed;
+  border-bottom: 1px solid #d8e0ea;
+  color: #68768c;
+  background: #eef2f6;
+  font-size: 8px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.ot-calendar__weekday:nth-child(7) { border-right: 0; }
+.ot-calendar__weekday:first-child { color: #a43b46; }
+
+.ot-calendar__day {
+  --status-color: transparent;
+  --status-soft: transparent;
+  position: relative;
+  min-height: 116px;
+  padding: 10px;
+  border-right: 1px solid var(--calendar-line);
+  border-bottom: 1px solid var(--calendar-line);
+  color: #344158;
+  background: #fff;
+}
+
+.ot-calendar__day::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: var(--status-color);
+  content: '';
+}
+
+.ot-calendar__day:nth-child(7n) { border-right: 0; }
+.ot-calendar__day:nth-last-child(-n + 7) { border-bottom: 0; }
+.ot-calendar__day:nth-child(7n + 1) .ot-calendar__date { color: #a43b46; }
+
+.ot-calendar__day--outside {
+  color: #a6afbd;
+  background: #f8fafc;
+}
+
+.ot-calendar__day--outside .ot-calendar__day-content { opacity: 0.48; }
+.ot-calendar__day--draft { --status-color: #8591a3; --status-soft: #f0f2f5; }
+.ot-calendar__day--submitted { --status-color: #315fd1; --status-soft: #edf2ff; }
+.ot-calendar__day--approved { --status-color: #08739a; --status-soft: #eaf6fb; }
+.ot-calendar__day--returned { --status-color: #b87313; --status-soft: #fff5e6; }
+.ot-calendar__day--rejected { --status-color: #bd3c49; --status-soft: #fff0f2; }
+.ot-calendar__day--closed { --status-color: #4f5f75; --status-soft: #edf0f4; }
+
+.ot-calendar__day--today {
+  z-index: 1;
+  box-shadow: inset 0 0 0 2px #0033cc;
+}
+
+.ot-calendar__date-row {
+  display: flex;
+  min-height: 26px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.ot-calendar__date {
+  display: grid;
+  width: 25px;
+  height: 25px;
+  place-items: center;
+  border-radius: 5px;
+  color: #344158;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+.ot-calendar__day--today .ot-calendar__date {
+  color: #fff;
+  background: #0033cc;
+}
+
+.ot-calendar__today-label {
+  color: #0033cc;
+  font-size: 7px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.ot-calendar__day-content {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.ot-calendar__status {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--status-color);
+  background: var(--status-soft);
+  font-size: 7px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.ot-calendar__status i {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--status-color);
+}
+
+.ot-calendar__day-content > div {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.ot-calendar__day-content strong {
+  overflow: hidden;
+  color: #202d43;
+  font-size: 9px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ot-calendar__day-content > div small {
+  color: #26354e;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 750;
+}
+
+.ot-calendar__day-content > span:last-child {
+  color: #7a8799;
+  font-size: 7px;
+}
+
+.ot-calendar__day--skeleton::before,
+.ot-calendar__day--skeleton::after {
+  position: static;
+  display: block;
+  width: 28px;
+  height: 10px;
+  border-radius: 3px;
+  background: #e5e9f0;
+  animation: ot-calendar-pulse 1.4s ease-in-out infinite;
+  content: '';
+}
+
+.ot-calendar__day--skeleton::after {
+  width: 66px;
+  margin-top: 28px;
+}
+
+.ot-calendar__error {
+  justify-content: center;
+  gap: 12px;
+  min-height: 50px;
+  padding: 8px 16px;
+  border-top: 1px solid #f2cfcc;
+  color: #a72a25;
+  background: #fff5f4;
+  font-size: 10px;
+}
+
+.ot-calendar__error button {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  background: #b9342e;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.ot-calendar__legend {
+  min-height: 48px;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 8px 20px;
+  border-top: 1px solid #dfe5ed;
+  background: #fff;
+}
+
+.ot-calendar__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #69778d;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.ot-calendar__legend-item::before {
+  width: 14px;
+  height: 3px;
+  border-radius: 1px;
+  background: #8591a3;
+  content: '';
+}
+
+.ot-calendar__legend-item--submitted::before { background: #315fd1; }
+.ot-calendar__legend-item--approved::before { background: #08739a; }
+.ot-calendar__legend-item--returned::before { background: #b87313; }
+.ot-calendar__legend-item--rejected::before { background: #bd3c49; }
+.ot-calendar__legend-item--closed::before { background: #4f5f75; }
+
+@keyframes ot-calendar-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 620px) {
+  .ot-calendar__header {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .ot-calendar__month-controls input {
+    flex: 1;
+    width: auto;
+  }
+
+  .ot-calendar__summary {
+    gap: 0;
+    overflow-x: auto;
+    padding: 0 14px;
+  }
+
+  .ot-calendar__summary > div {
+    min-width: 132px;
+    flex: 0 0 auto;
+    padding: 0 14px;
+  }
+
+  .ot-calendar__scroll { padding: 7px; }
+  .ot-calendar__legend { gap: 10px 14px; padding-right: 14px; padding-left: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ot-calendar__day--skeleton::before,
+  .ot-calendar__day--skeleton::after {
+    animation: none;
+  }
+}
